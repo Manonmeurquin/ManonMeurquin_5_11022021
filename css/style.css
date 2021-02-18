@@ -60,10 +60,10 @@ li p{
 
 /*Footer*/
 footer{
-  display: flex;
-  justify-content: center;
+ text-align: center;
   background-color: #f3ebf3;
   color: #2d1d2c;
+  padding: 2em 0;
 }
 .network{
   font-size: 2em;
@@ -74,4 +74,9 @@ footer{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+a{
+  text-decoration: none;
+  color: #2d1d2c;
 }
