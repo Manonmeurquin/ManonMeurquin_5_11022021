@@ -14,26 +14,25 @@ xhr.addEventListener('readystatechange', () => {
                 const $li = document.createElement('li');
                 $ul.appendChild($li);
 
-                $name = document.createElement('p');
-                $name.innerText = `Nom : ${teddy.name}`;
-                $li.appendChild($name);
-
-                // Créer un tableau ? ou une liste ? rechercher option value, form...
-                // $colors = document.createElement([]);
-                // $colors.
-                // $li.appendChild($colors);
-
-                $description = document.createElement('p');
-                $description.innerText = `Description : ${teddy.description}`;
-                $li.appendChild($description);
-
-                $price = document.createElement('p');
-                $price.innerText = `Prix : ${teddy.price}`;
-                $li.appendChild($price);
-
                 $imageUrl = document.createElement('img');
                 $imageUrl.src = teddy.imageUrl;
                 $li.appendChild($imageUrl);
+               // $img.classList.add('teddy-pic')
+
+                $name = document.createElement('p');
+                $name.innerText = `${teddy.name}`;
+                $li.appendChild($name);
+
+                // $colors = document.createElement("select");
+
+                // $description = document.createElement('p');
+                // $description.innerText = `${teddy.description}`;
+                // $li.appendChild($description);
+
+                $price = document.createElement('p');
+                $price.innerText = `${teddy.price/100}.00€`;
+                $li.appendChild($price);
+
          
             });
         } else {

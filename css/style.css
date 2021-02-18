@@ -1,0 +1,77 @@
+/* Index */
+/*Header*/
+body {
+  font-family: "montserrat";
+}
+
+header {
+  background-color: #f3ebf3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 11em;
+
+}
+
+.bag{
+  color:#2d1d2c;
+  font-size: 1.5em;
+}
+
+.logo {
+  background-image: url(logo_orinoco.png);
+  width: 17em;
+  height: 6em;
+}
+/*Produits*/
+
+.teddies-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  border: solid #2d1d2cbd 0.1em;
+  border-radius: 2em;
+  box-shadow: 6px 6px 8px 0px rgba(71, 71, 71, 0.81);
+  margin: 2em;
+  background-color: #f3ebf3;
+}
+
+.teddy-pic{
+    width: 2em;
+}
+
+li img {
+    border-radius: 2em;
+    object-fit: cover;
+}
+
+li p{
+  text-align: center;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+
+}
+
+/*Footer*/
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: #f3ebf3;
+  color: #2d1d2c;
+}
+.network{
+  font-size: 2em;
+}
+/* Général */
+
+.img{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
