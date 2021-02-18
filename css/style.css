@@ -2,6 +2,7 @@
 /*Header*/
 body {
   font-family: "montserrat";
+  margin: 0;
 }
 
 header {
@@ -10,11 +11,12 @@ header {
   justify-content: space-around;
   align-items: center;
   height: 11em;
-
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
 }
 
-.bag{
-  color:#2d1d2c;
+.bag {
+  color: #2d1d2c;
   font-size: 1.5em;
 }
 
@@ -23,6 +25,7 @@ header {
   width: 17em;
   height: 6em;
 }
+
 /*Produits*/
 
 .teddies-list {
@@ -42,41 +45,64 @@ li {
   background-color: #f3ebf3;
 }
 
-.teddy-pic{
-    width: 2em;
+.teddy-pic {
+  width: 2em;
 }
 
 li img {
-    border-radius: 2em;
-    object-fit: cover;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  object-fit: cover;
 }
 
-li p{
+li p {
   text-align: center;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-
 }
 
 /*Footer*/
-footer{
- text-align: center;
+footer {
+  text-align: center;
   background-color: #f3ebf3;
   color: #2d1d2c;
   padding: 2em 0;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
 }
-.network{
+.network {
   font-size: 2em;
 }
+
 /* Général */
 
-.img{
+.img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-a{
+a {
   text-decoration: none;
   color: #2d1d2c;
+}
+
+@media all and (min-width: 650px) and (max-width: 2000px) {
+  .teddies-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  li img {
+    width: 15em;
+  }
+
+  li {
+    margin: 1em;
+  }
+  .logo{
+    width: 20em;
+    height: ;
+  }
 }
