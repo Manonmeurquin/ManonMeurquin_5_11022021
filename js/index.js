@@ -1,3 +1,5 @@
+// Appel de l'API
+
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://localhost:3000/api/teddies');
 xhr.send();
@@ -10,29 +12,22 @@ xhr.addEventListener('readystatechange', () => {
             console.log(teddies);
             const $ul = document.querySelector('.teddies-list');
 
+// Création des cartes produit
             teddies.forEach((teddy) => {
                 const $li = document.createElement('li');
                 $ul.appendChild($li);
 
                 $imageUrl = document.createElement('img');
                 $imageUrl.src = teddy.imageUrl;
-                $li.appendChild($imageUrl);
-               // $img.classList.add('teddy-pic')
+                $li.appendChild($imageUrl)
 
                 $name = document.createElement('p');
                 $name.innerText = `${teddy.name}`;
                 $li.appendChild($name);
 
-                // $colors = document.createElement("select");
-
-                // $description = document.createElement('p');
-                // $description.innerText = `${teddy.description}`;
-                // $li.appendChild($description);
-
                 $price = document.createElement('p');
                 $price.innerText = `${teddy.price/100}.00€`;
                 $li.appendChild($price);
-
          
             });
         } else {

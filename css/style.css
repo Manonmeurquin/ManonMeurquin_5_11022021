@@ -1,4 +1,4 @@
-/* Index */
+/* PAGE INDEX */
 /*Header*/
 body {
   font-family: "montserrat";
@@ -45,10 +45,6 @@ li {
   background-color: #f3ebf3;
 }
 
-.teddy-pic {
-  width: 2em;
-}
-
 li img {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
@@ -59,6 +55,7 @@ li p {
   text-align: center;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
+
 }
 
 /*Footer*/
@@ -73,6 +70,10 @@ footer {
 .network {
   font-size: 2em;
 }
+
+/* PAGE PRODUIT */
+
+
 
 /* Général */
 
@@ -103,6 +104,9 @@ a {
   }
   .logo{
     width: 20em;
-    height: ;
+  }
+
+  .bag{
+    font-size: 2.5em;
   }
 }
