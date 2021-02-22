@@ -19,7 +19,7 @@ xhr.addEventListener('readystatechange', () => {
 
                 $imageUrl = document.createElement('img');
                 $imageUrl.src = teddy.imageUrl;
-                $li.appendChild($imageUrl)
+                $li.appendChild($imageUrl);
 
                 $name = document.createElement('p');
                 $name.innerText = `${teddy.name}`;
@@ -29,6 +29,15 @@ xhr.addEventListener('readystatechange', () => {
                 $price.innerText = `${teddy.price/100}.00€`;
                 $li.appendChild($price);
          
+                $more = document.createElement('a');
+                $more.href = `../pages/produit.html?&id=${teddy._id}`;
+                $more.innerText = `Voir plus`;
+                $li.appendChild($more);
+
+                // $link = document.createElement('a');
+                // $link.href = `../pages/produit.html?&id=${teddy._id}`;
+                // $ul.appendChild($link)
+
             });
         } else {
         }

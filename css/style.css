@@ -49,6 +49,7 @@ li img {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
   object-fit: cover;
+  object-position: center;
 }
 
 li p {
@@ -58,12 +59,19 @@ li p {
 
 }
 
+a{
+  text-align: end;
+  margin: 1em;
+}
+
 /*Footer*/
+
 footer {
   text-align: center;
   background-color: #f3ebf3;
   color: #2d1d2c;
   padding: 2em 0;
+  margin-top: 2em;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
 }
@@ -74,6 +82,47 @@ footer {
 /* PAGE PRODUIT */
 
 
+
+#img-teddy{
+  width: 20em;
+  border-radius: 2em;
+  margin-top: 2em;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+color: #2d1d2c;
+}
+
+#description{
+  margin: 0 2em;
+}
+
+select{
+  margin-top: 2em;
+}
+
+#add{
+  border: solid #2d1d2cbd 0.1em;
+  margin-top: 2em;
+  border-radius: 2em;
+  background-color:  #f3ebf3;
+  box-shadow: 5px 5px 5px 0px rgba(71, 71, 71, 0.81);
+  padding: 1em 2em;
+}
 
 /* Général */
 
@@ -88,7 +137,7 @@ a {
   color: #2d1d2c;
 }
 
-@media all and (min-width: 650px) and (max-width: 2000px) {
+@media all and (min-width: 650px) {
   .teddies-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -108,5 +157,14 @@ a {
 
   .bag{
     font-size: 2.5em;
+  }
+
+  .product {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #description {
+    width: 30em;
   }
 }
