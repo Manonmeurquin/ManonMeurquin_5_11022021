@@ -20,6 +20,10 @@ header {
   font-size: 1.5em;
 }
 
+.bag:hover{
+  font-size: 3em;
+}
+
 .logo {
   background-image: url(logo_orinoco.png);
   width: 17em;
@@ -33,6 +37,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 li {
@@ -43,25 +48,36 @@ li {
   box-shadow: 6px 6px 8px 0px rgba(71, 71, 71, 0.81);
   margin: 2em;
   background-color: #f3ebf3;
+ 
 }
 
-li img {
+li:hover{
+  box-shadow: 4px 5px 15px 3px rgba(54, 54, 54, 0.81);
+  cursor: pointer;
+
+}
+
+li a img {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
   object-fit: cover;
   object-position: center;
+  width: 100%;
+  
 }
 
 li p {
   text-align: center;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-
 }
 
-a{
-  text-align: end;
+#quantity,
+#select-colors {
+  padding: 0.5em;
   margin: 1em;
+  border-radius: 1em;
+  border: solid 0.1em rgba(71, 71, 71, 0.81);
 }
 
 /*Footer*/
@@ -81,9 +97,7 @@ footer {
 
 /* PAGE PRODUIT */
 
-
-
-#img-teddy{
+#img-teddy {
   width: 20em;
   border-radius: 2em;
   margin-top: 2em;
@@ -91,35 +105,35 @@ footer {
   object-position: center;
 }
 
-.product{
+.product {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.options{
+.options {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h1{
-color: #2d1d2c;
+h1 {
+  color: #2d1d2c;
 }
 
-#description{
+#description {
   margin: 0 2em;
 }
 
-select{
+select {
   margin-top: 2em;
 }
 
-#add{
+#add {
   border: solid #2d1d2cbd 0.1em;
   margin-top: 2em;
   border-radius: 2em;
-  background-color:  #f3ebf3;
+  background-color: #f3ebf3;
   box-shadow: 5px 5px 5px 0px rgba(71, 71, 71, 0.81);
   padding: 1em 2em;
 }
@@ -150,12 +164,13 @@ a {
 
   li {
     margin: 1em;
+    width: 20em;
   }
-  .logo{
+  .logo {
     width: 20em;
   }
 
-  .bag{
+  .bag {
     font-size: 2.5em;
   }
 

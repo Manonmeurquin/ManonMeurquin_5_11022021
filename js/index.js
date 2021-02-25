@@ -15,28 +15,24 @@ xhr.addEventListener('readystatechange', () => {
 // Création des cartes produit
             teddies.forEach((teddy) => {
                 const $li = document.createElement('li');
-                $ul.appendChild($li);
-
+                
                 $imageUrl = document.createElement('img');
                 $imageUrl.src = teddy.imageUrl;
-                $li.appendChild($imageUrl);
-
+        
                 $name = document.createElement('p');
                 $name.innerText = `${teddy.name}`;
-                $li.appendChild($name);
 
                 $price = document.createElement('p');
                 $price.innerText = `${teddy.price/100}.00€`;
-                $li.appendChild($price);
          
-                $more = document.createElement('a');
-                $more.href = `../pages/produit.html?&id=${teddy._id}`;
-                $more.innerText = `Voir plus`;
-                $li.appendChild($more);
+                $link = document.createElement('a');
+                $link.href = `../pages/produit.html?&id=${teddy._id}`;
 
-                // $link = document.createElement('a');
-                // $link.href = `../pages/produit.html?&id=${teddy._id}`;
-                // $ul.appendChild($link)
+                $link.appendChild($imageUrl);
+                $link.appendChild($name);
+                $link.appendChild($price);
+                $li.appendChild($link);
+                $ul.appendChild($li);
 
             });
         } else {

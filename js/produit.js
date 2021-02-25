@@ -5,68 +5,76 @@ function getOneTeddy() {
     console.log(id);
 
     fetch(`http://localhost:3000/api/teddies/${id}`)
-        // .then(response => {
-        //     if (response.ok) {
-        //         return teddy = response.json()
-        //     } else {
-        //         Promise.reject(response.status);
-        //     };
-        // })
-        // .then(teddy => {
-        //     const $h1 = document.querySelector('h1');
-        //     $h1.innerText = teddy.name;
-
-        //     const $imgTeddy = document.getElementById('img-teddy');
-        //     console.log($imgTeddy);
-        //     $imgTeddy.src = teddy.imageUrl;
-            
-
-        //     const $price = document.getElementById('price');
-        //     $price.innerText = `${teddy.price / 100}.00€`;
-
-        // })
+        
         .then((success) => {
             success.json().then((teddy) => {
                 console.log(teddy)
 
                 const $imgTeddy = document.getElementById('img-teddy');
                 $imgTeddy.src = teddy.imageUrl;
-                
+
                 const $h1 = document.querySelector('h1');
                 $h1.innerText = teddy.name;
 
                 const $price = document.getElementById('price');
-                $price.innerText = `${teddy.price/100}.00€`;
+                $price.innerText = `${teddy.price / 100}.00€`;
 
                 const $description = document.getElementById('description');
                 $description.innerText = teddy.description;
 
-                const $color = document.getElementById('colors');
-            
-                for (let i in teddy.colors) {
-                    if ( i < 1)
-                     $color.inner
+                // Boucle pour choix des options
 
-                    } 
-               // const $quantity = document.getElementById('quantity');
-            
+                const $color = document.getElementById('select-colors');
+                for (const color of teddy.colors) {
+                    $color.innerHTML += `<option value = "${color}"> ${color}</option>`;
+                }
 
-                // for (let i = 0; i < 10; i+= 1) {
-                //     let rep =
-                //     if
-                // }
+                const $quantity = document.getElementById('quantity');
+                for (let i = 1; i < 11; i++) {
+                    $quantity.innerHTML += `<option value ="${i}"> ${i}</option>`;
+                }
+                
+                // récupère le bouton validation du panier et j'applique la fonction de sauvegarde
+
+                const $button = document.querySelector('button');
+                $button.addEventListener('click', () => {
+                    saveClickedObject();
+                });
+
+                // Création de l'objet des éléments à récupérer
+                let teddiesQuantity = document.
+                let teddiesColor = document.
+                
+                let displayObject = {
+                    _id: teddy._id,
+                    image : teddy.imageUrl
+                    name: teddy.name,
+                    price: teddy.price,
+                    quantity: $quantity.value,
+                    // totalPrice: $quantity * price/ 100
+
+                };
+
+                //Fontion de sauvegarde avec localStorage
+
+                const saveClickedObject = () => {
+                    const storedBasket = window.localStorage.getItem('teddies_basket_storage');
+                    let basket;
+                    
+                    if(!storedBasket) {
+                        basket = [];
+                    } else {
+                        basket = JSON.parse(storedBasket);
+                    }
+                    basket.push();
+                    window.localStorage.setItem('teddies_basket_storage', JSON.stringify(basket));
+                    console.log(basket);
+                };
                 
             })
         })
-       
+
 }
 
 getOneTeddy();
 
-
-
-
-// $colors = document.createElement("select");
-// $description = document.createElement('p');
-// $description.innerText = `${teddy.description}`;
-// $li.appendChild($description);
