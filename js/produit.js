@@ -35,7 +35,7 @@ function getOneTeddy() {
                 }
 
                 const $add = document.getElementById('add');
-                $add.addEventListener('click',() => {
+                $add.addEventListener('click', () => {
                     addToBasket(teddy, $color.value, $quantity.value)
                 })
             })
@@ -70,7 +70,7 @@ function addToBasket(teddy, color, quantity) {
     console.log(storageTeddy);
 
     addToStorage(storageTeddy);
-    
+
 }
 
 getOneTeddy();

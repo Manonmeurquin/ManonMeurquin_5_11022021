@@ -46,7 +46,7 @@ header {
   flex-wrap: wrap;
 }
 
-li {
+.element {
   display: flex;
   flex-direction: column;
   border-radius: 2em;
@@ -56,14 +56,14 @@ li {
  
 }
 
-li:hover{
+.element:hover{
   box-shadow: 6px 6px 10px 1px rgba(31, 31, 31, 0.81);
   cursor: pointer;
   -wetransform: scale(1);
   transition: .3s ease-in-out;
 }
 
-li a img {
+.element a img {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
   object-fit: cover;
@@ -72,7 +72,7 @@ li a img {
   
 }
 
-li p {
+.element p {
   text-align: center;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
@@ -145,6 +145,37 @@ select {
 }
 
 /* PAGE PANIER */
+.panier{
+  text-align: center;
+}
+.tab{
+list-style: none;
+display: flex;
+border: solid 0.1em black;
+width: 40em;
+align-items: center;
+justify-content: space-around;
+
+}
+
+.tab img{
+height: 5em;
+width: 5em;
+object-fit: cover;
+object-position: center;
+}
+
+.totalPrice, .total{
+  font-weight: bold;
+}
+
+.total{
+  text-align: center;
+}
+
+#empty-basket{
+  text-align: center;
+}
 
 /*PAGE CONFIRMATION */
 

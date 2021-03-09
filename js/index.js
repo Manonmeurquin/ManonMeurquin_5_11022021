@@ -15,6 +15,7 @@ xhr.addEventListener('readystatechange', () => {
 // Création des cartes produit
             teddies.forEach((teddy) => {
                 const $li = document.createElement('li');
+                $li.classList.add('element')
                 
                 $imageUrl = document.createElement('img');
                 $imageUrl.src = teddy.imageUrl;
