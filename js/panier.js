@@ -12,25 +12,47 @@ function displayBasket(product) {
         ;
         const $pName = document.createElement('p');
         $pName.innerText = `${product[i].name} `;
+        $pName.classList.add('pname');
 
-        const $pPrice = document.createElement('p');
-        $pPrice.innerText = `Prix : ${product[i].unitPrice}€ `;
+        // const $pPrice = document.createElement('p');
+        // $pPrice.innerText = `${product[i].unitPrice}€ `;
 
         const $quantity = document.createElement('p');
-        $quantity.innerText = `Quantité : ${product[i].quantity} `;
+        $quantity.innerText = `${product[i].quantity} `;
+
+        const priceTrash = document.createElement('div');
+        priceTrash.classList.add('price-trash')
 
         const $totalPrice = document.createElement('p');
-        $totalPrice.innerText = `Prix total : ${product[i].totalPrice}€`;
+        $totalPrice.innerText = `${product[i].totalPrice}€`;
         $totalPrice.classList.add('totalPrice')
+
+        const $trash = document.createElement('i');
+        $trash.innerHTML = `<i class="fas fa-trash-alt trash"></i>`;
+        $trash.addEventListener('click', () => {
+            const index = product[i].index;
+            product.splice(index, 1)
+            const $tabs = document.querySelectorAll('.tab');
+            const $tabToRemove = $tabs[index]
+            console.log($tabToRemove);
+            window.localStorage.setItem('teddies_basket_storage', JSON.stringify(product));
+            $contentBasket.removeChild($tabToRemove);
+
+            product = product.map((item, i) => {
+                item.index = i
+                return item
+            });
+        })
 
         $li.appendChild($imgTeddy);
         $li.appendChild($pName);
-        $li.appendChild($pPrice);
+        // $li.appendChild($pPrice);
         $li.appendChild($quantity);
+        
         $li.appendChild($totalPrice);
+        $li.appendChild($trash);
 
         $contentBasket.appendChild($li);
-
     }
 
     sumOfPrice(product);
@@ -38,15 +60,16 @@ function displayBasket(product) {
 
 // Fonction pour récupérer le prix total
 
-function sumOfPrice(product) {
-    const $totalSum = document.querySelector('total');
+function sumOfPrice(products) {
+    const $totalSum = document.querySelector('.total');
     let total = 0;
-    for (let i = 0; i < product.length; i++) {
-        total = total + product[i];
-        $totalSum.innerText = ` TOTAL = ${total}€`;
+    for (let i = 0; i < products.length; i++) {
+        total = total + products[i].totalPrice;
     }
-console.log($totalSum);
+    $totalSum.innerText = ` TOTAL = ${total}€`;
+    console.log($totalSum);
 }
+
 
 
 
@@ -55,7 +78,11 @@ const storedBasket = window.localStorage.getItem('teddies_basket_storage');
 let basket = [];
 
 if (storedBasket != null) {
-    basket = JSON.parse(storedBasket);
+    basket = JSON.parse(storedBasket).map((product, i) => {
+        product.index = i
+        return product
+    });
+    console.log(basket);
     displayBasket(basket);
 } else {
     $emptyBasket.innerText = 'Votre panier est vide.'
