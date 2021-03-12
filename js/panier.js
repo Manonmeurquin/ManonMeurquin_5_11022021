@@ -27,28 +27,47 @@ function displayBasket(product) {
         $totalPrice.innerText = `${product[i].totalPrice}€`;
         $totalPrice.classList.add('totalPrice')
 
+        // Fonction de suppression d'un élément du panier au click
         const $trash = document.createElement('i');
         $trash.innerHTML = `<i class="fas fa-trash-alt trash"></i>`;
         $trash.addEventListener('click', () => {
+
             const index = product[i].index;
-            product.splice(index, 1)
             const $tabs = document.querySelectorAll('.tab');
             const $tabToRemove = $tabs[index]
-            console.log($tabToRemove);
-            window.localStorage.setItem('teddies_basket_storage', JSON.stringify(product));
-            $contentBasket.removeChild($tabToRemove);
+            product.splice(index, 1)
+            console.log(product);
+            
+            if (product.length == 0) {
+                localStorage.clear();
+                //document.location.reload();
 
+            } else {
+                console.log($tabToRemove);
+                window.localStorage.setItem('teddies_basket_storage', JSON.stringify(product));
+                //$contentBasket.removeChild($tabToRemove);
+
+            }
+            document.location.reload();
             product = product.map((item, i) => {
                 item.index = i
                 return item
             });
         })
 
+        // Suppression du panier entier
+        const $delete = document.querySelector('.delete');
+        $delete.addEventListener('click', () => {
+            localStorage.clear();
+            document.location.reload();
+        })
+
+
         $li.appendChild($imgTeddy);
         $li.appendChild($pName);
         // $li.appendChild($pPrice);
         $li.appendChild($quantity);
-        
+
         $li.appendChild($totalPrice);
         $li.appendChild($trash);
 
@@ -70,8 +89,9 @@ function sumOfPrice(products) {
     console.log($totalSum);
 }
 
-
-
+// Regex
+const regeEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+const regexCity = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
 
 // Je récupère les données dans le local storage
 const storedBasket = window.localStorage.getItem('teddies_basket_storage');

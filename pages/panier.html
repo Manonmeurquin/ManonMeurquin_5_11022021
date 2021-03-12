@@ -24,13 +24,15 @@
   </header>
   <main>
     <h1 class="final-title">Finalisation de votre panier</h1>
-    <h2 class="basket-title">Votre panier</h2>
-    <div class="info-line">
+    
+   <!-- <div class="info-line">
       <p>Article</p>
       <p>Quantité</p>
       <p>Prix</p>
-    </div>
-    <!-- <div class="main-content"> -->
+    </div>-->
+
+    <div class="main-content">
+      <h2 class="basket-title">Votre panier</h2>
     <ul id="content-basket">
 
     </ul>
@@ -43,28 +45,29 @@
       <form action="" class="form"></form>
       <div class="fill">
         <label for="lastname" class="flastname">Nom :</label>
-        <input type="text" name="lastname" class="input">
+        <input type="text" name="lastname" class="input" style="width: 220px">
       </div>
       <div class="fill">
         <label for="name" class="fname">Prénom : </label>
-        <input type="text" name="name" class="input">
+        <input type="text" name="name" class="input" style="width: 220px">
       </div>
       <div class="fill">
         <label for="mail" class="fmail">Email : </label>
-        <input type="email" name="email" class="input">
+        <input type="email" name="email" class="input" style="width: 220px" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
       </div>
       <div class="fill">
         <label for="address" class="faddress">Adresse : </label>
-        <input type="text" name="address" class="input">
+        <input type="text" name="address" class="input" style="width: 220px">
       </div>
       <div class="fill">
         <label for="cp" class="fcp">Ville : </label>
-        <input type="text" name="cp" class="input">
+        <input type="text" name="cp" class="input" style="width: 220px">
       </div>
-
     </div>
+    <div class="buttons">
     <input type="submit" value="Valider la commande" class="command">
-    <!-- </div> -->
+    <input type="button" value="Supprimer le panier" class="delete">
+    </div>
   </main>
   <footer>
     <p>Contact</p>

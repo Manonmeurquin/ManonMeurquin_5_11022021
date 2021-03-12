@@ -37,6 +37,10 @@ function getOneTeddy() {
                 const $add = document.getElementById('add');
                 $add.addEventListener('click', () => {
                     addToBasket(teddy, $color.value, $quantity.value)
+                    const $iconBasket = document.querySelector('.fa-shopping-bag');
+                    for (let i = 0; i ; i++){
+                        
+                    }
                 })
             })
         })
