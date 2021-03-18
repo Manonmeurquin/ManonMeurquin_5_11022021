@@ -135,7 +135,7 @@ select {
   margin-top: 2em;
 }
 
-#add {
+#add, .accueil{
   border: solid #2d1d2cbd 0.1em;
   margin-top: 2em;
   border-radius: 2em;
@@ -143,13 +143,13 @@ select {
   box-shadow: 5px 5px 5px 0px rgba(71, 71, 71, 0.81);
   padding: 1em 2em;
 }
-#add:hover{
+#add:hover, .accueil:hover{
   box-shadow: 6px 6px 10px 1px rgba(31, 31, 31, 0.81);
   cursor: pointer;
   
 }
 
-#add:active {
+#add:active .accueil:active{
   background-color: #f3d6f3;
 
 }
@@ -226,6 +226,7 @@ margin-top: 0;
 
 #empty-basket{
   text-align: center;
+  padding-bottom: 3em;
 }
 
 .contact-form{
@@ -277,10 +278,24 @@ color: rgb(163,103,191);
  border-radius: 0.5em;
  border: #2d1d2c 0.1em solid;
  justify-content: flex-end;
+ width: 200px;
 }
 
 
 /*PAGE CONFIRMATION */
+.contain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thanks{
+  
+}
+
+.accueil{
+  width: 15em;
+}
 
 /* Général */
 

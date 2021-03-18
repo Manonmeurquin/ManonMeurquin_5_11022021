@@ -27,7 +27,7 @@ xhr.addEventListener('readystatechange', () => {
                 $price.innerText = `${teddy.price/100}.00€`;
          
                 $link = document.createElement('a');
-                $link.href = `../pages/produit.html?&id=${teddy._id}`;
+                $link.href = `pages/produit.html?&id=${teddy._id}`;
 
                 $link.appendChild($imageUrl);
                 $link.appendChild($name);

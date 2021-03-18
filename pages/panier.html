@@ -24,50 +24,48 @@
   </header>
   <main>
     <h1 class="final-title">Finalisation de votre panier</h1>
-    
-   <!-- <div class="info-line">
-      <p>Article</p>
-      <p>Quantité</p>
-      <p>Prix</p>
-    </div>-->
 
     <div class="main-content">
       <h2 class="basket-title">Votre panier</h2>
-    <ul id="content-basket">
+      <ul id="content-basket">
 
-    </ul>
-    <p class="total"></p>
+      </ul>
+      <p class="total"></p>
 
-    <div id="empty-basket"></div> <!-- Visible uniquement lorsque le panier est vide -->
+      <div id="empty-basket"></div> <!-- Visible uniquement lorsque le panier est vide -->
 
-    <h2 class="contact-title">Vos coordonnées</h2>
-    <div class="contact-form">
-      <form action="" class="form"></form>
-      <div class="fill">
-        <label for="lastname" class="flastname">Nom :</label>
-        <input type="text" name="lastname" class="input" style="width: 220px">
+      <h2 class="contact-title">Vos coordonnées</h2>
+      <div class="contact-form">
+        <form action="" id="contactForm">
+        <div class="fill">
+          <label for="lastname" >Nom :</label>
+          <input type="text" name="lastname" class="input flastname" pattern="^[^ ][a-zA-Z '\-éèêëçäà]*[^ ]$" required>
+        </div>
+        <div class="fill">
+          <label for="name" >Prénom : </label>
+          <input type="text" name="name" class="input fname" pattern="^[^ ][a-zA-Z '\-éèêëçäà]*[^ ]$" required>
+        </div>
+        <div class="fill">
+          <label for="mail" >Email : </label>
+          <input type="email" name="email" class="input fmail" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$"
+            required>
+        </div>
+        <div class="fill">
+          <label for="address" >Adresse : </label>
+          <input type="text" name="address" class="input faddress" required>
+        </div>
+        <div class="fill">
+          <label for="city" >Ville : </label>
+          <input type="text" name="city" class="input fcity"
+            pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" required>
+        </div>
       </div>
-      <div class="fill">
-        <label for="name" class="fname">Prénom : </label>
-        <input type="text" name="name" class="input" style="width: 220px">
+      <div class="buttons">
+        <input type="submit" value="Valider la commande" class="command">
+        
+        <input type="button" value="Supprimer le panier" class="delete">
       </div>
-      <div class="fill">
-        <label for="mail" class="fmail">Email : </label>
-        <input type="email" name="email" class="input" style="width: 220px" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
-      </div>
-      <div class="fill">
-        <label for="address" class="faddress">Adresse : </label>
-        <input type="text" name="address" class="input" style="width: 220px">
-      </div>
-      <div class="fill">
-        <label for="cp" class="fcp">Ville : </label>
-        <input type="text" name="cp" class="input" style="width: 220px">
-      </div>
-    </div>
-    <div class="buttons">
-    <input type="submit" value="Valider la commande" class="command">
-    <input type="button" value="Supprimer le panier" class="delete">
-    </div>
+    </form>
   </main>
   <footer>
     <p>Contact</p>
