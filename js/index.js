@@ -7,9 +7,7 @@ xhr.send();
 xhr.addEventListener('readystatechange', () => {
     if (xhr.readyState === 4) {
         if (xhr.status === 200 || xhr.status === 201){
-            console.log(xhr.responseText);
             const teddies = JSON.parse(xhr.responseText);
-            console.log(teddies);
             const $ul = document.querySelector('.teddies-list');
 
 // Création des cartes produit
@@ -34,11 +32,9 @@ xhr.addEventListener('readystatechange', () => {
                 $link.appendChild($price);
                 $li.appendChild($link);
                 $ul.appendChild($li);
-
             });
         } else {
         }
-
     }
 });
 

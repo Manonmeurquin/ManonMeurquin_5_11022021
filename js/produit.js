@@ -1,4 +1,6 @@
 
+// Fonction qui récupère l'id de l'article sélectionné et l'affiche sur la page
+
 function getOneTeddy() {
     const productId = new URLSearchParams(document.location.search);
     const id = productId.get('id');
@@ -39,13 +41,13 @@ function getOneTeddy() {
                     addToBasket(teddy, $color.value, $quantity.value)
                     const $iconBasket = document.querySelector('.fa-shopping-bag');
                     for (let i = 0; i ; i++){
-                        
                     }
                 })
             })
         })
 }
 
+// Ajoute l'article avec ses options au LS
 const addToStorage = (teddy) => {
     const storedJsonTeddies = window.localStorage.getItem('teddies_basket_storage');
     let teddies;
@@ -55,11 +57,11 @@ const addToStorage = (teddy) => {
     } else {
         teddies = JSON.parse(storedJsonTeddies);
     }
-
     teddies.push(teddy);
     window.localStorage.setItem('teddies_basket_storage', JSON.stringify(teddies));
 };
 
+// Fonction qui sert à créer l'objet qui récupère les informations de l'article à envoyer au LS
 function addToBasket(teddy, color, quantity) {
     let storageTeddy = {
         _id: teddy._id,
@@ -70,11 +72,7 @@ function addToBasket(teddy, color, quantity) {
         quantity: quantity,
         totalPrice: quantity * teddy.price / 100
     };
-
-    console.log(storageTeddy);
-
     addToStorage(storageTeddy);
-
 }
 
 getOneTeddy();
