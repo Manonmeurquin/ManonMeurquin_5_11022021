@@ -4,13 +4,11 @@
 function getOneTeddy() {
     const productId = new URLSearchParams(document.location.search);
     const id = productId.get('id');
-    console.log(id);
 
     fetch(`http://localhost:3000/api/teddies/${id}`)
 
         .then((success) => {
             success.json().then((teddy) => {
-                console.log(teddy)
 
                 const $imgTeddy = document.getElementById('img-teddy');
                 $imgTeddy.src = teddy.imageUrl;
@@ -39,9 +37,6 @@ function getOneTeddy() {
                 const $add = document.getElementById('add');
                 $add.addEventListener('click', () => {
                     addToBasket(teddy, $color.value, $quantity.value)
-                    const $iconBasket = document.querySelector('.fa-shopping-bag');
-                    for (let i = 0; i ; i++){
-                    }
                 })
             })
         })
