@@ -1,24 +1,33 @@
-let total;
+let total, basket = [];
+
 // Récupération des données dans le local storage et ajout d'un index pour suppression
+function getBasket() {
+    const storedBasket = window.localStorage.getItem('teddies_basket_storage');
+    console.log(storedBasket);
 
-const storedBasket = window.localStorage.getItem('teddies_basket_storage');
-let basket = [];
-
-if (storedBasket != null) {
-    basket = JSON.parse(storedBasket).map((product, i) => {
-        product.index = i
-        return product
-    });
-    const $home = document.querySelector('.home');
-    $home.style.display = 'none';
-    displayBasket(basket);
-} else {
-    const $emptyBasket = document.getElementById('empty-basket');
-    $emptyBasket.innerText = `Votre panier est vide :'(`;
-    const $mainContact = document.querySelector('.main-contact');
-    $mainContact.style.display = 'none';
-};
-
+    if (storedBasket != null) {
+        return JSON.parse(storedBasket).map((product, i) => {
+            product.index = i
+            return product
+        });
+    } else {
+        return []
+    };
+}
+// Affiche les éléments retournés dans la fonction getBasket
+function initPage() {
+    basket = getBasket();
+    if (basket.length > 0) {
+        const $home = document.querySelector('.home');
+        $home.style.display = 'none';
+        displayBasket(basket);
+    } else {
+        const $emptyBasket = document.getElementById('empty-basket');
+        $emptyBasket.innerText = `Votre panier est vide :'(`;
+        const $mainContact = document.querySelector('.main-contact');
+        $mainContact.style.display = 'none';
+    };
+}
 // Fonction pour récupérer le prix total
 function sumOfPrice(products) {
     const $totalSum = document.querySelector('.total');
@@ -28,30 +37,52 @@ function sumOfPrice(products) {
     }
     $totalSum.innerHTML = ` TOTAL = <span id="orderPrice">${total}€</span>`;
 }
+//Permet de supprimer les éléments du panier un par un
 
-// Fonction qui affiche les articles dans le panier + suppression
+function removeFromBasket(product) {
+    const index = product.index;
+    const $tabs = document.querySelectorAll('.tab');
+    const $tabToRemove = $tabs[index];
+    console.log($tabs, index);
+    document.getElementById('content-basket').removeChild($tabToRemove);
+    basket.splice(index, 1);
+    sumOfPrice(basket);
 
-function displayBasket(product) {
-    for (let i = 0; i < product.length; i++) {
+    if (basket.length == 0) {
+        window.localStorage.removeItem('teddies_basket_storage');
+
+    } else {
+        console.log($tabToRemove);
+        basket = basket.map((item, i) => {
+            item.index = i
+            return item
+        });
+        window.localStorage.setItem('teddies_basket_storage', JSON.stringify(basket));
+    }
+}
+// Fonction qui affiche les articles dans le panier
+
+function displayBasket(products) {
+    for (let i = 0; i < products.length; i++) {
         const $contentBasket = document.getElementById('content-basket');
         const $li = document.createElement('li');
         $li.classList.add('tab');
 
         const $imgTeddy = document.createElement('img');
-        $imgTeddy.src = product[i].image;
+        $imgTeddy.src = products[i].image;
 
         const $pName = document.createElement('p');
-        $pName.innerText = `${product[i].name} `;
+        $pName.innerText = `${products[i].name} `;
         $pName.classList.add('pname');
 
         const $quantity = document.createElement('p');
-        $quantity.innerText = `${product[i].quantity} `;
+        $quantity.innerText = `${products[i].quantity} `;
 
         const priceTrash = document.createElement('div');
         priceTrash.classList.add('price-trash');
 
         const $totalPrice = document.createElement('p');
-        $totalPrice.innerText = `${product[i].totalPrice}€`;
+        $totalPrice.innerText = `${products[i].totalPrice}€`;
         $totalPrice.classList.add('totalPrice');
 
         // Suppression d'un élément du panier au click
@@ -59,24 +90,8 @@ function displayBasket(product) {
         const $trash = document.createElement('i');
         $trash.innerHTML = `<i class="fas fa-trash-alt trash"></i>`;
         $trash.addEventListener('click', () => {
-
-            const index = product[i].index;
-            const $tabs = document.querySelectorAll('.tab');
-            const $tabToRemove = $tabs[index]
-            product.splice(index, 1)
-
-            if (product.length == 0) {
-                localStorage.clear();
-
-            } else {
-                console.log($tabToRemove);
-                window.localStorage.setItem('teddies_basket_storage', JSON.stringify(product));
-            }
-            document.location.reload();
-            product = product.map((item, i) => {
-                item.index = i
-                return item
-            });
+        removeFromBasket(products[i]);
+        console.log(products);
         })
 
         // Suppression du panier entier
@@ -95,7 +110,7 @@ function displayBasket(product) {
         $contentBasket.appendChild($li);
     }
 
-    sumOfPrice(product);
+    sumOfPrice(products);
 };
 
 // Validation du formulaire avec regex
@@ -162,3 +177,4 @@ $contactForm.addEventListener('submit', (event) => {
             console.log("Une erreur s'est produite");
         })
 });
+initPage();

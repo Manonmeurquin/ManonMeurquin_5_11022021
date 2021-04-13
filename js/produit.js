@@ -37,13 +37,14 @@ function getOneTeddy() {
                 const $add = document.getElementById('add');
                 $add.addEventListener('click', () => {
                     addToBasket(teddy, $color.value, $quantity.value)
+                    document.location.reload();
                 })
             })
         })
 }
 
 // Ajoute l'article avec ses options au LS
-const addToStorage = (teddy) => {
+function addToStorage(teddy){
     const storedJsonTeddies = window.localStorage.getItem('teddies_basket_storage');
     let teddies;
 
